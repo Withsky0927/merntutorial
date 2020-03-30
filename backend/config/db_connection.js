@@ -12,14 +12,13 @@
 ?       2. Check database Connection Status
 ?  
 */
-
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+dotenv.config();
 
-const databaseConnection = () => {
-  dotenv.config();
-
-  let connection = process.env.DEV_DB;
+//? exports this database conncetion configuration for server.js use
+module.exports.databaseConnection = () => {
+  let connection = process.env.DB_CONNECTION;
 
   //? this asynchronous function will be as connection interface to mongodb
   const createConnection = async () => {
@@ -32,7 +31,6 @@ const databaseConnection = () => {
       });
 
       //? show connection status
-      console.log(connect);
       console.log('connected to database');
     } catch (error) {
       console.log('cannot connect to database');
@@ -40,9 +38,6 @@ const databaseConnection = () => {
     }
   };
 
-  //?
+  //? execute database connection;
   createConnection();
 };
-
-//? exports this database conncetion configuration for server.js use
-module.exports = databaseConnection();

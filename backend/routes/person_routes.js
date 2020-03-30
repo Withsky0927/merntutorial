@@ -14,21 +14,21 @@ const express = require('express');
 const router = express.Router();
 
 //? import user controller in here
-const userController = require('../controllers/user_controller');
+const personController = require('../controllers/person_controller');
 
 //? use all controller that will handle request user route
 
 //? use getUsers and createUser for get and post method
 router
   .route('/')
-  .get(userController.getUsers)
-  .post(userController.createUser);
+  .get(personController.getPersons)
+  .post(personController.createPerson);
 
 //? use updateUser and createUser for put and post method
 router
   .route('/:id')
-  .put(userController.updateUser)
-  .delete(userController.deleteUser);
+  .put(personController.updatePerson)
+  .delete(personController.deletePerson);
 
 //? export express router for http:://localhost:500/user url registration
 module.exports = router;

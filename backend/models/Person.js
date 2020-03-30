@@ -12,7 +12,7 @@
 const mongoose = require('mongoose');
 
 //? create document schema structure
-const PersonSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'please add new name'],
@@ -42,4 +42,4 @@ const PersonSchema = new mongoose.Schema({
 });
 
 //? export the model for controller/middleware used
-module.exports = mongoose.model('Person', PersonSchema);
+module.exports = mongoose.model('User', userSchema);
