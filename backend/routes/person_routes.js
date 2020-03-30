@@ -1,12 +1,11 @@
 /*
-?    Filename: server.js
+?    Filename: person_route.js
 ?   
 ?    Type: Route file
 ?    Description:
 ?         this file will register a specific route for certain url with endpoint
 ?
 ?    Job/Function:
-?       1. Connect to database
 ?       2. Established all routes/ url
 */
 
@@ -18,13 +17,13 @@ const personController = require('../controllers/person_controller');
 
 //? use all controller that will handle request user route
 
-//? use getUsers and createUser for get and post method
+//? use getPerson and createPerson for get and post method
 router
   .route('/')
   .get(personController.getPersons)
   .post(personController.createPerson);
 
-//? use updateUser and createUser for put and post method
+//? use updatePerson and deletePerson for put and post method
 router
   .route('/:id')
   .put(personController.updatePerson)

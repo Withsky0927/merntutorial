@@ -23,7 +23,7 @@ api using node.js and javascript Framework in our case React.js, so you will kno
    K. slugify - for string manipulation
    L. uuid - for generating random uuid string
 
-2) React.js/Frontend dependencies
+2. React.js/Frontend dependencies
    A. axios - for ajax calls to apis
    B. Socket.io Client - for connecting to websocket in backend/api
    C. node-sass - for enabling scss for fun styling
