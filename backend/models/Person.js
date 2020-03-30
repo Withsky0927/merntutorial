@@ -2,9 +2,8 @@
 ?    Filename: Person.js
 ?    Type: Model
 ?    Description:
-?       This type of file is required to schema of Person document
-?       
-?
+?       This type of file is required for model schema of Person document
+?      
 ?    Job/Function:
 ?       1. create the structure of Person document and its field data type
 */
