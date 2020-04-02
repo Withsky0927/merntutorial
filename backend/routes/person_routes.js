@@ -26,6 +26,7 @@ router
 //? use updatePerson and deletePerson for put and post method
 router
   .route('/:id')
+  .get(personController.getPerson)
   .put(personController.updatePerson)
   .delete(personController.deletePerson);
 

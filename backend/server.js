@@ -1,6 +1,6 @@
 /*
 ?    Filename: server.js
-     
+
 ?    Type:Express Server initializer
 
 ?    Description:
@@ -54,7 +54,7 @@ server.use(cors());
 DB.databaseConnection();
 
 //? initate custom error handler global middleware for handling errors
-server.use(errorMiddleware.errorHandler);
+server.use(errorMiddleware);
 
 //? set logger for http request/ response log for development environment
 if (process.env.NODE_ENV === 'development') {
@@ -69,6 +69,7 @@ server.listen(PORT, () =>
   console.log(`server started at ${process.env.NODE_ENV} at port ${PORT}`),
 );
 
-process.on('UnhandledRejection', () => {
+process.on('UnhandledRejection', (error) => {
+  console.log(error);
   process.exit(0);
 });

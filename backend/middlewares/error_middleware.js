@@ -13,36 +13,34 @@
 
 const Errors = require('../utils/Errors');
 
-module.exports.errorHandler = (err, request, response, next) => {
-  let errors = { ...err };
-  let error;
+module.exports = (error, request, response, next) => {
+  let errors = { ...error };
+  let errorValue;
 
   //* check for error name
   switch (errors.name) {
     //? check for invalid id error
     case 'CastError':
-      error = new Errors(400, `invalid user id`);
+      errorValue = new Errors(400, `invalid user id`);
       break;
 
     //? check for mongoose validation error
     case 'ValidatorError':
-      const validationErrors = Object.values(err.errors).map(
+      const validationErrors = Object.values(errors.errors).map(
         (value) => value.message,
       );
-      error = new Errors(400, validationErrors);
+      errorValue = new Errors(400, validationErrors);
       console.log(validationErrors);
       break;
 
     default:
-      error = new Errors(500, errors.message);
+      errorValue = new Errors(500, `unknown error`);
       break;
   }
-  //? log error object
-  console.log(errors);
 
   //? send response error status code with error message to client
-  return response.status(error.statusCode || 500).json({
-    status: 'failed',
-    errors: error.message,
+  return response.status(errors.statusCode || 500).json({
+    status: false,
+    errors: errorValue.message,
   });
 };

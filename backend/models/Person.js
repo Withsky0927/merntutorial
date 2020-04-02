@@ -11,7 +11,7 @@
 const mongoose = require('mongoose');
 
 //? create document schema structure
-const userSchema = new mongoose.Schema({
+const personSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'please add new name'],
@@ -41,4 +41,4 @@ const userSchema = new mongoose.Schema({
 });
 
 //? export the model for controller/middleware used
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Person', personSchema);
